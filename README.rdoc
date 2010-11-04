@@ -32,6 +32,55 @@ To get a simple model built, this will work:
     end
     
 A full example using Sinatra looks like this:
+  require 'rubygems'
+  require 'sinatra'
+  require 'haml'
+  require 'rdf_for_sqlite'
+
+  configure do
+    set :repo, RDF::DataObjects::Repository.new('sqlite3:/tmp/demo.db')
+    Spira.add_repository(:default, settings.repo)
+  end
+
+  class Concept
+
+    include RDFForSQLite
+
+    class << self
+      def find_or_create_by_name(name)
+        concept = Concept.for(concept_name(name))
+        return concept if concept.exist?
+        concept.name = name
+        concept.save!
+        concept
+      end
+
+      protected
+        def concept_name(name)
+          concept_name = name.downcase.gsub(/\s+/, '_')
+        end
+
+    end
+
+    base_uri "http://example.org/example/concepts"
+
+    property :name, :predicate => SKOS.prefLabel
+    property :description, :predicate => SKOS.definition
+    property :scope, :predicate => SKOS.scopeNote
+
+  end
+
+  get "/" do
+    haml :home
+  end
+
+  post '/concepts' do
+    concept = Concept.find_or_create_by_name(params[:concept][:name])
+    concept.update_attributes(params[:concept])
+    content_type :json
+    concept.to_json
+  end
+  
 
       
 

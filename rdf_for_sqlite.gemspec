@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "lib/rdf_for_sqlite.rb",
+     "rdf_for_sqlite.gemspec",
      "spec/rdf_for_sqlite_spec.rb",
      "spec/spec_helper.rb"
   ]
