@@ -1,6 +1,39 @@
-= rdf_for_sqlite
+= RDF for SQLite
 
-Description goes here.
+RDF for SQLite is a container gem for getting the simplest RDF-based applications off the ground.  It uses quite a few modular gems and fixes a little inconsistency between RDF.rb and ActiveModel.  The gems are:
+
+* rdf
+* rdf/ntriples
+* data_objects
+* do_sqlite3
+* rdf/do
+* spira
+* active_model
+
+This basically boils down to RDF.rb + ActiveModel + Spira + SQLite3 to create a pretty straightforward repository, serializer, parser, and ORM. 
+
+To get a simple model built, this will work:
+
+    class Person
+      include RDFForSQLite
+      
+      # Choose a useful base URI
+      base_uri "http://example.org/people"
+      
+      property :name,  :predicate => FOAF.name
+      
+      validate :presence_of_name
+      
+      protected
+        def presence_of_name
+          assert_set :name
+        end
+      
+    end
+    
+A full example using Sinatra looks like this:
+
+      
 
 == Note on Patches/Pull Requests
  

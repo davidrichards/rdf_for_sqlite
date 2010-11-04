@@ -5,12 +5,20 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "rdf_for_sqlite"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Container gem to get RDF models }
+    gem.description = %Q{RDF for SQLite is a container gem for getting the simplest RDF-based applications off the ground.  It uses quite a few modular gems and fixes a little inconsistency between RDF.rb and ActiveModel.  This basically boils down to RDF.rb + ActiveModel + Spira + SQLite3 to create a pretty straightforward repository, serializer, parser, and ORM. }
     gem.email = "davidlamontrichards@gmail.com"
     gem.homepage = "http://github.com/davidrichards/rdf_for_sqlite"
     gem.authors = ["David Richards"]
     gem.add_development_dependency "rspec"
+    gem.add_dependency "rdf"
+    gem.add_dependency "data_objects"
+    gem.add_dependency "do_sqlite3"
+    gem.add_dependency "rdf-do"
+    gem.add_dependency "spira"
+    gem.add_dependency "activemodel"
+    gem.add_dependency "json"
+    
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 rescue LoadError
