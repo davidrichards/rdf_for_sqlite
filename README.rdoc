@@ -90,7 +90,7 @@ Install with:
 
 == Status
 
-This project is a work in progress.  It is designed mostly to get a project going quickly with some models.  There are a few things I'd like to work out still.  I use RDF.rb because it's so incredibly modular and easy to customize.  So, in that sense, this is a stupid gem to create.  However, if looking for a recipe to get started with a little RDF data, this might be a place to start.
+This project is a work in progress.  It is designed mostly to get a project going quickly with some models.  I use RDF.rb because it's so incredibly modular and easy to customize.  This gem just assumes that a few RDF technologies will be needed.  So, in that sense, this is a stupid gem to create.  However, if looking for a recipe to get started with a little RDF data, this might be a place to start.
 
 == Note on Patches/Pull Requests
  
