@@ -6,7 +6,7 @@ RDF for SQLite is a container gem for getting the simplest RDF-based application
 * rdf/ntriples
 * data_objects
 * do_sqlite3
-* rdf/do
+* rdf-do
 * spira
 * active_model
 
